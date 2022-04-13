@@ -1,0 +1,55 @@
+<div class = "mx-48">
+    <div class = "flex flex-row flex-wrap basis-auto justify-center">
+        <div *ngFor="let gasolineData of data" class="flex flex-row">
+            <app-card-gasoline [gasolineData] = "gasolineData">
+            </app-card-gasoline>
+        </div>
+    </div>
+    <!-- <div class = "flex flex-row">
+        <div class="chartjs-container grow"
+        style="position: relative; width: 66vw">
+            <canvas baseChart 
+                [datasets]="lineChartData" 
+                [options]="lineChartOptions" 
+                [legend]="lineChartLegend">
+            </canvas>
+        </div>
+        <div class = "flex flex-col">
+            <div *ngFor="let gasolineData of data" class="flex flex-row">
+                <app-card-gasoline [gasolineData] = "gasolineData">
+                </app-card-gasoline>
+            </div
+        </div>
+    </div> -->
+
+    <div class = "flex flex-row">
+        <div class = 'min-w-0 basis-3/4'>
+        <div class='position:relative'>
+            <canvas baseChart 
+                [datasets]="lineChartData" 
+                [options]="lineChartOptions" 
+                [legend]="lineChartLegend">
+            </canvas>
+        </div>
+        </div>
+        <div class = "min-w-0 basis-1/4 flex flex-col place-content-between px-55">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                  <input matStartDate formControlName="start" placeholder="Start date">
+                  <input matEndDate formControlName="end" placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              
+                <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+              </mat-form-field>
+              
+            <!-- <p>Selected range: {{this.datePipe.transform(this.range.value.start,'dd/MM/yyyy')}} - {{this.datePipe.transform(this.range.value.end,'dd/MM/yyyy')}}</p> -->
+            <div class = "flex justify-end">
+                <input type="reset" value="Reset" class="btn" (click)="onResetDate()">
+            </div>
+        </div>
+    </div>
+</div>

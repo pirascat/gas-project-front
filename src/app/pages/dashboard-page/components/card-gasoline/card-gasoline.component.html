@@ -1,0 +1,10 @@
+<div class="card w-80 bg-base-100 shadow-xl mx-1.5 my-1.5">
+    <div class="card-body">
+        <div class = 'flex flex-row justify-between'>
+            <h2 class="card-title">{{gasolineData.name}}</h2>
+            <input type="checkbox" class="toggle" checked>
+        </div>
+        <p>Price : {{(gasolineData.averagePrice/1000).toFixed(2)}}€</p>
+        <p>Number of occurences : {{gasolineData.numberPrices.toLocaleString("eng")}}</p>
+    </div>
+</div>
